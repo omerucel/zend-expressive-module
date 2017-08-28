@@ -1,0 +1,19 @@
+{
+    "name": "omerucel/zend-expressive-module",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ömer ÜCEL",
+            "email": "omerucel@gmail.com"
+        }
+    ],
+    "require": {
+        "omerucel/common": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Project\\": "src/Project"
+        }
+    }
+}
