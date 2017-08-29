@@ -9,7 +9,9 @@
         }
     ],
     "require": {
-        "omerucel/common": "dev-master"
+        "omerucel/common": "dev-master",
+        "zendframework/zend-expressive-twigrenderer": "1.5.0",
+        "twig/twig": "2.4.3"
     },
     "autoload": {
         "psr-4": {

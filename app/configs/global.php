@@ -11,17 +11,29 @@ return [
     'basePath' => $basePath,
     'php_di' => [
         'definitions' => [
-            \OU\Logger\LoggerHelper::class => \DI\factory([\OU\Logger\LoggerHelperFactory::class, 'create'])
+            \OU\Logger\LoggerHelper::class => \DI\factory([\OU\Logger\LoggerHelperFactory::class, 'create']),
+            Twig_Environment::class => \DI\factory([\Project\Factory\TwigFactory::class, 'factory']),
+            \Zend\Expressive\Router\RouterInterface::class => \DI\factory([\Zend\Expressive\Router\FastRouteRouterFactory::class, '__invoke'])
         ]
+    ],
+    'modules' => [
+        '/api' => \Project\Module\Api\ApiModule::class,
+        '/panel' => \Project\Module\Panel\PanelModule::class,
+        '/' => \Project\Module\Web\WebModule::class
     ],
     'logger' => [
         'default_name' => 'app',
         'path' => $basePath . '/var/logs',
         'level' => \Psr\Log\LogLevel::DEBUG
     ],
-    'modules' => [
-        '/api' => \Project\Module\Api\ApiModule::class,
-        '/panel' => \Project\Module\Panel\PanelModule::class,
-        '/' => \Project\Module\Web\WebModule::class
-    ]
+    'twig' => [
+        'default_template_path' => $basePath . '/app/templates',
+        'assets_url' => '',
+        'assets_version' => 1,
+        'globals' => [],
+        'options' => [
+            'auto_reload' => true,
+            'cache' => $basePath . '/var/cache/twig'
+        ]
+    ],
 ];
