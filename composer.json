@@ -9,9 +9,10 @@
         }
     ],
     "require": {
-        "omerucel/common": "dev-master",
+        "omerucel/common": "0.1.2",
         "zendframework/zend-expressive-twigrenderer": "1.5.0",
-        "twig/twig": "2.4.3"
+        "twig/twig": "2.4.4",
+        "http-interop/http-middleware": "^0.4.1"
     },
     "autoload": {
         "psr-4": {

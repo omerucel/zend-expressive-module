@@ -2,6 +2,7 @@
 
 namespace Project\Module\Api;
 
+use OU\ZendExpressive\Module\Common\Middleware\ErrorHandlerMiddleware;
 use OU\ZendExpressive\Module\Common\Middleware\RequestLoggerMiddleware;
 use OU\ZendExpressive\Module\ModuleAbstract;
 use Project\Module\Api\Action\ListUserAction;
@@ -14,6 +15,7 @@ class ApiModule extends ModuleAbstract
     {
         $app = AppFactory::create($this->container);
         $app->pipe(RequestLoggerMiddleware::class);
+        $app->pipe(ErrorHandlerMiddleware::class);
         $app->route('/api[/]', WelcomeAction::class);
         $app->route('/api/users', ListUserAction::class);
         $app->pipeRoutingMiddleware();

@@ -2,6 +2,7 @@
 
 namespace Project\Module\Web;
 
+use OU\ZendExpressive\Module\Common\Middleware\ErrorHandlerMiddleware;
 use OU\ZendExpressive\Module\Common\Middleware\RequestLoggerMiddleware;
 use OU\ZendExpressive\Module\ModuleAbstract;
 use Project\Module\Web\Action\AboutAction;
@@ -16,6 +17,7 @@ class WebModule extends ModuleAbstract
     {
         $app = AppFactory::create($this->container, $this->container->get(RouterInterface::class));
         $app->pipe(RequestLoggerMiddleware::class);
+        $app->pipe(ErrorHandlerMiddleware::class);
         $app->route('/', HomepageAction::class)->setName('homepage');
         $app->route('/about', AboutAction::class)->setName('about');
         $app->pipeRoutingMiddleware();
