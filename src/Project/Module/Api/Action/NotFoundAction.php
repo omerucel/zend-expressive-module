@@ -1,12 +1,12 @@
 <?php
 
-namespace Project\Module\Web\Action;
+namespace Project\Module\Api\Action;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Diactoros\Response\TextResponse;
+use Zend\Diactoros\Response\JsonResponse;
 
 class NotFoundAction implements MiddlewareInterface
 {
@@ -17,6 +17,6 @@ class NotFoundAction implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $requestHandler): ResponseInterface
     {
-        return new TextResponse('Not found!', 404);
+        return new JsonResponse(['meta' => ['errorMessage' => 'Resource not found!', 'errorCode' => 1]], 404);
     }
 }

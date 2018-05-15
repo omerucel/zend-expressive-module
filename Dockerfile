@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.7
 MAINTAINER Ömer ÜCEL <omerucel@gmail.com>
 
-RUN apk --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
+RUN apk --no-cache \
     add \
     curl \
     bash \

@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Factory;
+namespace OU\Factory;
 
 use Zend\Config\Config;
 use Zend\Expressive\Helper\ServerUrlHelper;
